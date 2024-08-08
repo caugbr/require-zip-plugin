@@ -10,7 +10,7 @@ To add some plugin to the required plugins queue, just use `$require_zip_plugin-
 - `$plugin_id` - ID of the required plugin after installed, as used internally by WP (folder_name/file_name.php)
 
 ### Example
-The plugin **Inline Edit** depends on some functionalities from **WP Helper**, hosted in my Github. **Inline Edite** does not initialize if **WP Hepler** is not active and there will be a warn in administration until it is active.
+The plugin **Inline Edit** depends on some functionalities from **WP Helper**, hosted in my Github. **Inline Edite** does not initialize if **WP Hepler** is not active and until it is activated there will be a warn in all admin pages.
 
     class InlineEdit {
         public function __construct() {
@@ -31,4 +31,5 @@ The plugin **Inline Edit** depends on some functionalities from **WP Helper**, h
 
 ### The displayed message
 First we tell the user that script X is dependent on plugin Y. If it doesn't exist we download it and tell them so. Then we ask them to activate the plugin.
+
 You can change the messages in the translation file (../langs/rzp-[your-language-code].po), observing the order of replacements (`%1$s`, `%2$s`, ...).
