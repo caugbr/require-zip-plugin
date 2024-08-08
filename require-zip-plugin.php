@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Require Zip Plugin
- * Description: Warns users that a plugin is required and downloads it from a ZIP URL. The warning will be displayed until the plugin is activated.
+ * Description: Warns users that a plugin is required and downloads it from a ZIP URL. The warning will be displayed until the plugin is active.
  * Version: 1.0
  * Author: Cau Guanabara
  * Author URI: mailto:cauguanabara@gmail.com
@@ -18,9 +18,10 @@ class RequireZipPlugin {
 
     public function __construct() {
         $this->me_first();
+        add_action('init', [$this, 'load_translations']);
         add_action('admin_notices', [$this, 'add_notices']);
     }
-
+    
     /**
      * Add required plugin to queue
      *
@@ -33,6 +34,24 @@ class RequireZipPlugin {
     public function require($dependent, $required, $zip_url, $plugin_id) {
         $this->required[] = compact('dependent', 'required', 'zip_url', 'plugin_id');
     }
+    
+    public function load_translations() {
+        load_plugin_textdomain('rzp', false, dirname(plugin_basename(__FILE__)) . '/langs');
+    }
+
+    private function check($plugin_id) {
+        return file_exists(ABSPATH . "/wp-content/plugins/{$plugin_id}");
+    }
+
+    public function me_first() {
+        $plugins = get_option('active_plugins');
+        $ind = array_search('require-zip-plugin/require-zip-plugin.php', $plugins);
+        if ($ind) {
+            unset($plugins[$ind]);
+            array_unshift($plugins, 'require-zip-plugin/require-zip-plugin.php');
+            update_option('active_plugins', $plugins);
+        }
+    }
 
     public function add_notices() {
         foreach ($this->required as $info) {
@@ -43,27 +62,36 @@ class RequireZipPlugin {
             global $pagenow;
             if (!is_plugin_active($info['plugin_id'])) {
                 print '<div class="notice notice-error"><p>';
-                printf(__('<strong>%s</strong> depends on <strong>%s</strong> plugin', 'vuewp'), $info['dependent'], $info['required']);
+                // For translators
+                // %1$s - requesting script
+                // %2$s - required plugin
+                printf(__('<strong>%1$s</strong> depends on <strong>%2$s</strong> plugin', 'rzp'), $info['dependent'], $info['required']);
                 if ($pagenow == 'plugins.php') {
                     if ($downloaded) {
-                        printf(__('.<br>We have downloaded <strong>%s</strong> for you, but since you are on the plugins page, you must %sreload the page%s to see it.', 'vuewp'), $info['required'], '<a href="javascript:location.reload()">', '</a>');
+                        // %1$s - required plugin
+                        // %2$s - open link
+                        // %3$s - close link
+                        printf(__('.<br>We have downloaded <strong>%1$s</strong> for you, but since you are in the plugins page, you must %2$sreload the page%3$s to see it.', 'rzp'), $info['required'], '<a href="javascript:location.reload()">', '</a>');
                     } else {
-                        _e(', please activate it.', 'vuewp');
+                        // %1$s - required plugin
+                        printf(__(', please activate it.', 'rzp'), $info['required']);
                     }
                 } else {
                     if ($downloaded) {
-                        printf(__('.<br>We have downloaded <strong>%s</strong> for you, just activate it in %splugins page%s.'), $info['required'], '<a href="plugins.php">', '</a>');
+                        // %1$s - required plugin
+                        // %2$s - open link
+                        // %3$s - close link
+                        printf(__('.<br>We have downloaded <strong>%1$s</strong> for you, just activate it in %2$splugins page%3$s.'), $info['required'], '<a href="plugins.php">', '</a>');
                     } else {
-                        printf(__(', please activate it in %splugins page%s.'), '<a href="plugins.php">', '</a>');
+                        // %1$s - required plugin
+                        // %2$s - open link
+                        // %3$s - close link
+                        printf(__(', please activate it in %2$splugins page%3$s.', 'rzp'), $info['required'], '<a href="plugins.php">', '</a>');
                     }
                 }
                 print '</p></div>';
             }
         }
-    }
-
-    private function check($plugin_id) {
-        return file_exists(ABSPATH . "/wp-content/plugins/{$plugin_id}");
     }
 
     private function download($zip_url, $plugin_id) {
@@ -80,24 +108,15 @@ class RequireZipPlugin {
         $unzip_dir = ABSPATH . "wp-content/uploads/{$dir_name}/";
         if (unzip_file($local_file, $unzip_dir)) {
             $dirs = array_values(array_diff(scandir($unzip_dir), ['.', '..']));
-            $dir = $dirs[0];
-            $wp_filesystem->move($unzip_dir . $dir, ABSPATH . "/wp-content/plugins/{$dir_name}");
-            unlink($local_file);
-            rmdir($unzip_dir);
-            return true;
-        } else {
-            return false;
+            $dir = $dirs[0] ?? '';
+            if (!empty($dir) && is_dir($unzip_dir . $dir)) {
+                $wp_filesystem->move($unzip_dir . $dir, ABSPATH . "/wp-content/plugins/{$dir_name}");
+                unlink($local_file);
+                rmdir($unzip_dir);
+                return true;
+            }
         }
-    }
-
-    public function me_first() {
-        $plugins = get_option('active_plugins');
-        $ind = array_search('require-zip-plugin/require-zip-plugin.php', $plugins);
-        if ($ind) {
-            unset($plugins[$ind]);
-            array_unshift($plugins, 'require-zip-plugin/require-zip-plugin.php');
-            update_option('active_plugins', $plugins);
-        }
+        return false;
     }
 }
 

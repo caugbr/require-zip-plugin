@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Require ZIP Plugin\n"
+"POT-Creation-Date: 2024-08-08 14:49-0300\n"
+"PO-Revision-Date: 2024-08-08 15:08-0300\n"
+"Last-Translator: \n"
+"Language-Team: Cau Guanabara\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: require-zip-plugin.php:46
+#, php-format
+msgid "<strong>%s</strong> depends on <strong>%s</strong> plugin"
+msgstr "<strong>%s</strong> depende do plugin <strong>%s</strong>"
+
+#: require-zip-plugin.php:49
+#, php-format
+msgid ".<br>We have downloaded <strong>%s</strong> for you, but since you are in the plugins page, you must %sreload the page%s to see it."
+msgstr ""
+"Fizemos o download de <strong>%s</strong> pra você, mas como você está na página de plugins, será preciso %srecarregar a página%s para ver ele na "
+"lita abaixo."
+
+#: require-zip-plugin.php:51
+msgid ", please activate it."
+msgstr ", por favor ative-o."
+
+#: require-zip-plugin.php:55
+#, php-format
+msgid ".<br>We have downloaded <strong>%s</strong> for you, just activate it in %splugins page%s."
+msgstr "Fizemos o download de <strong>%s</strong> pra você, por favor ative ele na %spágina de plugins%s."
+
+#: require-zip-plugin.php:57
+#, php-format
+msgid ", please activate it in %splugins page%s."
+msgstr ", por favor ative ele na %spágina de plugins%s."
+
+#: require-zip-plugin.php:4
+msgid "Warns users that a plugin is required and downloads it from a ZIP URL. The warning will be displayed until the plugin is active."
+msgstr "Avisa ao usuário que o plugin é necessário e faz o download a partir de uma URL. O aviso permanecerá visível até que o plugin esteja ativado."
