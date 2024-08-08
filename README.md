@@ -31,4 +31,4 @@ The plugin **Inline Edit** depends on some functionalities from **WP Helper**, h
 
 ### The displayed message
 First we tell the user that script X is dependent on plugin Y. If it doesn't exist we download it and tell them so. Then we ask them to activate the plugin.
-You can change the messages in the translation file (../langs/rzp-[your-language-code].po), preserving the order of replacements (`%s`).
+You can change the messages in the translation file (../langs/rzp-[your-language-code].po), preserving the order of replacements (`%1$s`, `%2$s`, ...).
