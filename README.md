@@ -24,7 +24,7 @@ The plugin **Inline Edit** depends on some functionalities from **WP Helper**, h
 	                'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
 	                'wp-helper/wp-helper.php'
 	            );
-				// To require a theme
+                // To require a theme
 	            $require_zip_plugin->require(
 	                'Inline Edit', 
 	                'Vue WP Theme', 
