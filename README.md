@@ -15,32 +15,32 @@ The plugin **Inline Edit** depends on some functionalities from **WP Helper**, h
 
     class InlineEdit {
         public function __construct() {
-	        global $wp_helper;
-	        global $require_zip_plugin;
-	        if ($require_zip_plugin) {
-	            $require_zip_plugin->require(
-	                'Inline Edit', 
-	                'WP Helper', 
-	                'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
-	                'wp-helper/wp-helper.php'
-	            );
+            global $wp_helper;
+            global $require_zip_plugin;
+            if ($require_zip_plugin) {
+                $require_zip_plugin->require(
+                    'Inline Edit', 
+                    'WP Helper', 
+                    'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
+                    'wp-helper/wp-helper.php'
+                );
                 // To require a theme
-	            $require_zip_plugin->require(
-	                'Inline Edit', 
-	                'Vue WP Theme', 
-	                'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
-	                'vue-wp-theme/style.css', // ID becames the path to style.css
-					'theme' // Specify that it's a theme
-	            );
-	        }
-	        if ($wp_helper) {
-	            // ...
-	        }
-			// Test if the required theme is active
-	        if (wp_get_theme() == 'Vue WP Theme') {
-	            // ...
-	        }
-	    }
+                $require_zip_plugin->require(
+                    'Inline Edit', 
+                    'Vue WP Theme', 
+                    'https://github.com/caugbr/wp-helper/archive/refs/heads/main.zip', 
+                    'vue-wp-theme/style.css', // ID becames the path to style.css
+                    'theme' // Specify that it's a theme
+                );
+            }
+            if ($wp_helper) {
+                // ...
+            }
+            // Test if the required theme is active
+            if (wp_get_theme() == 'Vue WP Theme') {
+                // ...
+            }
+        }
 
 ### The displayed message
 First we tell the user that script X is dependent on plugin or theme Y. If it doesn't exist we download it and tell them so. Then we ask them to activate the plugin/theme.
