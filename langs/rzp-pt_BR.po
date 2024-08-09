@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Require ZIP Plugin\n"
-"POT-Creation-Date: 2024-08-08 14:49-0300\n"
-"PO-Revision-Date: 2024-08-08 15:08-0300\n"
+"POT-Creation-Date: 2024-08-09 09:07-0300\n"
+"PO-Revision-Date: 2024-08-09 09:20-0300\n"
 "Last-Translator: \n"
 "Language-Team: Cau Guanabara\n"
 "Language: pt_BR\n"
@@ -16,32 +16,92 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: require-zip-plugin.php:46
-#, php-format
-msgid "<strong>%s</strong> depends on <strong>%s</strong> plugin"
-msgstr "<strong>%s</strong> depende do plugin <strong>%s</strong>"
-
-#: require-zip-plugin.php:49
-#, php-format
-msgid ".<br>We have downloaded <strong>%s</strong> for you, but since you are in the plugins page, you must %sreload the page%s to see it."
-msgstr ""
-"Fizemos o download de <strong>%s</strong> pra você, mas como você está na página de plugins, será preciso %srecarregar a página%s para ver ele na "
-"lita abaixo."
-
-#: require-zip-plugin.php:51
-msgid ", please activate it."
-msgstr ", por favor ative-o."
-
-#: require-zip-plugin.php:55
-#, php-format
-msgid ".<br>We have downloaded <strong>%s</strong> for you, just activate it in %splugins page%s."
-msgstr "Fizemos o download de <strong>%s</strong> pra você, por favor ative ele na %spágina de plugins%s."
-
-#: require-zip-plugin.php:57
-#, php-format
-msgid ", please activate it in %splugins page%s."
-msgstr ", por favor ative ele na %spágina de plugins%s."
-
 #: require-zip-plugin.php:4
-msgid "Warns users that a plugin is required and downloads it from a ZIP URL. The warning will be displayed until the plugin is active."
-msgstr "Avisa ao usuário que o plugin é necessário e faz o download a partir de uma URL. O aviso permanecerá visível até que o plugin esteja ativado."
+#, php-format
+msgid ""
+"Warns users that some plugin or theme is required and downloads it from a "
+"ZIP URL. The warning will be displayed until the plugin is active."
+msgstr ""
+"Avisa ao usuário que algm plugin ou tema é necessário e faz o download do "
+"arquivo a partir de uma URL para um arquivo ZIP. O aviso permanece visível "
+"até que esteja instalado e ativo."
+
+#: require-zip-plugin.php:28
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on <strong>%2$s</strong> plugin, please "
+"activate it in %3$splugins page%4$s."
+msgstr ""
+"<strong>%1$s</strong> depende do plugin <strong>%2$s</strong>, por favor "
+"ative ele na %3$spágina de plugins%4$s."
+
+#: require-zip-plugin.php:29
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on <strong>%2$s</strong> plugin.<br>We just "
+"downloaded <strong>%1$s</strong> for you, please activate it in %3$splugins "
+"page%4$s."
+msgstr ""
+"<strong>%1$s</strong> depende do plugin <strong>%2$s</strong>.<br>Fizemos o "
+"download de <strong>%1$s</strong> para você, por favor ative ele na "
+"%3$spágina de plugins%4$s."
+
+#: require-zip-plugin.php:30
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on WP <strong>%2$s</strong> plugin, please "
+"activate it."
+msgstr ""
+"<strong>%1$s</strong> depende do plugin <strong>%2$s</strong>, por favor "
+"ative ele."
+
+#: require-zip-plugin.php:31
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on <strong>%2$s</strong> plugin.<br>We just "
+"downloaded <strong>%1$s</strong> for you, but since you are in the plugins "
+"page, you must %3$sreload the page%4$s to see it."
+msgstr ""
+"<strong>%1$s</strong> depende do plugin <strong>%2$s</strong>.<br>Fizemos o "
+"download de <strong>%1$s</strong> para você, mas como você está na página "
+"de plugins, precisa %3$srecarregar a página%4$s para ver ele na lista."
+
+#: require-zip-plugin.php:32
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on WP <strong>%2$s</strong> theme, please "
+"activate it in %3$sthemes page%4$s."
+msgstr ""
+"<strong>%1$s</strong> depende do tema <strong>%2$s</strong>, por favor "
+"ative ele na %3$spágina de temas%4$s."
+
+#: require-zip-plugin.php:33
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on <strong>%2$s</strong> theme.<br>We just "
+"downloaded <strong>%1$s</strong> for you, please activate it in %3$sthemes "
+"page%4$s."
+msgstr ""
+"<strong>%1$s</strong> depende do tema <strong>%2$s</strong>.<br>Fizemos o "
+"download de <strong>%1$s</strong> para você, por favor ative ele na "
+"%3$spágina de temas%4$s."
+
+#: require-zip-plugin.php:34
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on <strong>%2$s</strong> theme, please "
+"activate it."
+msgstr ""
+"<strong>%1$s</strong> depende do tema <strong>%2$s</strong>, por favor "
+"ative ele."
+
+#: require-zip-plugin.php:35
+#, php-format
+msgid ""
+"<strong>%1$s</strong> depends on WP <strong>%2$s</strong> theme.<br>We just "
+"downloaded <strong>%1$s</strong> for you, but since you are in the themes "
+"page, you must %3$sreload the page%4$s to see it."
+msgstr ""
+"<strong>%1$s</strong> depende do tema <strong>%2$s</strong>.<br>Fizemos o "
+"download de <strong>%1$s</strong> para você, mas como você está na página "
+"de temas, precisa %3$srecarregar a página%4$s para ver ele na lista."
